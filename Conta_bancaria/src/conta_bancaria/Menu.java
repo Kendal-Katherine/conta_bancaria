@@ -1,6 +1,8 @@
 package conta_bancaria;
 
 import java.util.Scanner;
+
+import conta_bancaria.model.Conta;
 import conta_bancaria.util.Cores;
 
 public class Menu {
@@ -10,6 +12,19 @@ public class Menu {
 	public static void main(String[] args) {
 
 		int opcao;
+		
+		/*Criar objetos da Classe Conta para testes*/
+		
+		Conta c1 = new Conta(1, 123, 1, "Victória Moraes", 100000.0f);
+		c1.visualizar();
+		System.out.println("Exibir o Saldo: " + c1.getSaldo());
+		c1.setSaldo(2000000.00f);
+		c1.visualizar();
+		c1.sacar(21000000.00f);
+		c1.visualizar();
+		c1.depositar(5000.00f);
+		c1.visualizar();
+
 		
 		while(true) {
 			
@@ -31,7 +46,7 @@ public class Menu {
 			System.out.println("                        9 - Sair                                            ");
 			System.out.println("                                                                            ");
 			System.out.println("****************************************************************************");
-			System.out.println("Entre com a opção desejada:                                                 ");
+			System.out.println("Entre com a opção desejada:                                                  ");
 			System.out.println("                                                                            " + Cores.TEXT_RESET);
 			
 			opcao = leia.nextInt();
