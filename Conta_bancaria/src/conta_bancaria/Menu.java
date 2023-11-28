@@ -48,7 +48,8 @@ public class Menu {
 			System.out.println("                        6 - Sacar                                           ");
 			System.out.println("                        7 - Depositar                                       ");
 			System.out.println("                        8 - Transferir valores entre contas                 ");
-			System.out.println("                        9 - Sair                                            ");
+			System.out.println("                        9 - Consulta por Titular                            ");
+			System.out.println("                        10 - Sair                                            ");
 			System.out.println("                                                                            ");
 			System.out.println("****************************************************************************");
 			System.out.println("Entre com a opção desejada:                                                  ");
@@ -63,7 +64,7 @@ public class Menu {
 				opcao = 0;
 
 			}
-			if (opcao == 9) {
+			if (opcao == 10) {
 				System.out.println(Cores.TEXT_WHITE_BOLD + "Banco KKC - Dois Ks e um C para você vencer!");
 				sobre();
 				leia.close();
@@ -212,6 +213,18 @@ public class Menu {
 				}
 				keyPress();
 				break;
+
+			case 9:
+				System.out.println(Cores.TEXT_WHITE + "Consultar dados da Conta - por Titular\n\n");
+
+				System.out.println("Digite o nome do Titular da conta: ");
+				leia.skip("\\R");
+				titular = leia.nextLine();
+
+				contas.procurarPorNome(titular);
+				keyPress();
+				break;
+
 			default:
 				System.out.println(Cores.TEXT_RED_BOLD + "\nOpção Inválida!\n" + Cores.TEXT_RESET);
 				keyPress();
